@@ -1,0 +1,11 @@
+#!/bin/bash
+apt update
+apt -y install libssl-dev git autoconf automake make gcc libio-fdpass-perl
+cd /root
+git clone https://github.com/graygnuorg/pound
+cd pound
+./bootstrap
+./configure --prefix=/usr --sysconfdir=/etc
+make
+make check
+make install
